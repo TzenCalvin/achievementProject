@@ -2,6 +2,18 @@
 
 (function() {
 
+  window.addEventListener("load", init);
+
+  /**
+   * Sets up the necessary buttons and displays the welcome page when the webpage loads.
+   */
+  function init() {
+
+    
+    document.cookie = 'logged-in=false';
+    checkIfLoggedIn();
+  }
+
   // HELPER FUNCTIONS
 
   /**

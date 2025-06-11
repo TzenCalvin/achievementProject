@@ -1,9 +1,9 @@
 html * {
   font-family: "Combo", system-ui;
+  margin: 10px 90px;
 }
 
 body {
-  text-align: center;
   background-color: rgb(165, 243, 217);
 }
 
@@ -12,6 +12,28 @@ h1 {
 }
 
 #prizes, select, p, button {
+  font-size: 20px;
+}
+
+nav {
+  font-size: 30px;
+}
+
+#view-recs {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#recs-button {
+  margin: 0;
+}
+
+footer p {
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
   font-size: 20px;
 }
 
