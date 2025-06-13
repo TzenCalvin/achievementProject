@@ -9,9 +9,13 @@
    */
   function init() {
 
-    
+    id('recs-button').addEventListener('click', generateRecs);
     document.cookie = 'logged-in=false';
     checkIfLoggedIn();
+  }
+
+  function generateRecs() {
+    //feature not implemented yet
   }
 
   // HELPER FUNCTIONS

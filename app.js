@@ -15,4 +15,10 @@ const CLIENT_SIDE_ERROR_STATUS_CODE = 400;
 
 app.use(express.static('public'));
 const PORT = process.env.PORT || 8001;
+
+// Makes it so that each nav bar selection works
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 app.listen(PORT);
