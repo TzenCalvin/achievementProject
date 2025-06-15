@@ -8,10 +8,50 @@
    * Sets up the necessary buttons and displays the welcome page when the webpage loads.
    */
   function init() {
+    qsa.forEach(link => {             // Sets up the navbar links
+      link.addEventListener('click', e => {
+        const path = link.getAttribute('href');
 
+        renderPage(path);
+      });
+    });
     id('recs-button').addEventListener('click', generateRecs);
     document.cookie = 'logged-in=false';
     checkIfLoggedIn();
+  }
+
+  /**
+   * Sets up the forward/backward browser buttons.
+   */
+  window.addEventListener('popstate', () => {
+    renderPage(window.location.pathname);
+  });
+
+  /**
+   * Loads page based off nav
+   */
+  function renderPage(path) {
+    hideAll();
+
+    if(path === '/about') {
+      id('about-page').classList.remove('hidden');;
+    } else if(path === '/steam') {
+      document.body.innerHTML = '<h1>Steam</h1>';
+    } else {
+      id('welcome-page').classList.remove('hidden');;
+    }
+  }
+
+  /**
+   * Adds the class 'hidden' to all of the pages on the website.
+   */
+  function hideAll() {
+    let pages = qsa('body > section');
+    for (let i = 0; i < pages.length; i++) {
+      if (!pages[i].classList.contains('hidden')) {
+        pages[i].classList.add('hidden');
+      }
+    }
   }
 
   function generateRecs() {
